@@ -1,6 +1,6 @@
 {
   "name": "pubit-as-promised",
-  "description": "Responsible publish/subscribe not enhanced with Q promise goodness! Hide the event publisher, only exposing the event emitter.",
+  "description": "Responsible publish/subscribe now enhanced with Q promise goodness! Hide the event publisher, only exposing the event emitter.",
   "keywords": [
     "pubsub",
     "pub/sub",
