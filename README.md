@@ -92,7 +92,7 @@ voter.on("vote", function(candidates) {
     voter.once("winner", displayWinner);
  
     function onsubmit(myChoice) {
-        deferred.something(myChoice);
+        deferred.resolve(myChoice);
     }
  
     setupForm(onSubmit, candidates);
