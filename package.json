@@ -8,8 +8,8 @@
     "events",
     "promise"
   ],
-  "version": "1.0.0",
-  "author": "NobleJS",
+  "version": "1.0.1",
+  "author": "YuzuJS",
   "contributors": [
     "Domenic Denicola <domenic@domenicdenicola.com> (http://domenicdenicola.com)",
     "Donavon West <github@donavon.com> (http://donavon.com)"
@@ -35,8 +35,8 @@
     "node": "*"
   },
   "dependencies": {
-    "dict": "1",
-    "q": "0.8.12"
+    "dict": "~1",
+    "q": "0.8.12 - 1"
   },
   "devDependencies": {
     "jshint": ">= 0.7.1",
