@@ -1,6 +1,6 @@
 Publisher = require("..").Publisher
 
-describe "Publisher options", ->
+xdescribe "Publisher options", ->
     publisher = null
     emitter = null
 
