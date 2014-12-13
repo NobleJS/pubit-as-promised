@@ -14,7 +14,7 @@ describe "makeEmitter", ->
         listener3 = sinon.spy()
 
         target.on("event1", listener1)
-        target.onNext("event2", listener2)
+        target.once("event2", listener2)
         target.on("event3", listener3)
 
         publish("event1")
@@ -32,7 +32,7 @@ describe "makeEmitter", ->
         pubit.makeEmitter(target)
 
         Object.getOwnPropertyDescriptor(target, "on").enumerable.should.be.false
-        Object.getOwnPropertyDescriptor(target, "onNext").enumerable.should.be.false
+        Object.getOwnPropertyDescriptor(target, "once").enumerable.should.be.false
         Object.getOwnPropertyDescriptor(target, "off").enumerable.should.be.false
 
     it "should use the options passed in", (next) ->

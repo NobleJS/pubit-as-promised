@@ -1,6 +1,6 @@
 Publisher = require("..").Publisher
 
-describe "emitter.onNext", ->
+describe "emitter.once", ->
     publisher = null
     emitter = null
 
@@ -13,7 +13,7 @@ describe "emitter.onNext", ->
 
         beforeEach ->
             listener = sinon.spy()
-            emitter.onNext("eventName", listener)
+            emitter.once("eventName", listener)
 
         it "should call the listener when the event is published", ->
             publisher.publish("eventName")
@@ -45,8 +45,8 @@ describe "emitter.onNext", ->
         beforeEach ->
             listener1 = sinon.spy()
             listener2 = sinon.spy()
-            emitter.onNext("eventName", listener1)
-            emitter.onNext("eventName", listener2)
+            emitter.once("eventName", listener1)
+            emitter.once("eventName", listener2)
 
         it "should call both listeners when the event is published", ->
             publisher.publish("eventName")
@@ -66,8 +66,8 @@ describe "emitter.onNext", ->
 
         beforeEach ->
             listener = sinon.spy()
-            emitter.onNext("eventName", listener)
-            emitter.onNext("eventName", listener)
+            emitter.once("eventName", listener)
+            emitter.once("eventName", listener)
 
         it "should call the listener twice when the event is published", ->
             publisher.publish("eventName")
@@ -92,7 +92,7 @@ describe "emitter.onNext", ->
 
         beforeEach ->
             listener = sinon.spy()
-            emitter.onNext("eventName", listener)
+            emitter.once("eventName", listener)
             emitter.on("eventName", listener)
 
         it "should call the listener twice when the event is published", ->
@@ -131,7 +131,7 @@ describe "emitter.onNext", ->
 
         beforeEach ->
             listener = sinon.spy()
-            emitter.onNext(events.join(" "), listener)
+            emitter.once(events.join(" "), listener)
 
         it "publishes the first event correctly, and the listener is called only the first time", ->
             publisher.publish("event1")
@@ -169,11 +169,11 @@ describe "emitter.onNext", ->
         hash = null
 
         beforeEach ->
-            hash = 
+            hash =
                 event1: sinon.spy()
                 event2: sinon.spy()
                 event3: sinon.spy()
-            emitter.onNext(hash)
+            emitter.once(hash)
 
         it "calls the listeners when the events are published", ->
             publisher.publish("event1")
