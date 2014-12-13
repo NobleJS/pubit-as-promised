@@ -1,7 +1,7 @@
-Pubit-as-promised
+Pubit-as-promised [![Build Status](https://travis-ci.org/YuzuJS/pubit-as-promised.svg)](https://travis-ci.org/YuzuJS/pubit-as-promised)
 =====
 Responsible publish/subscribe. Hide the event publisher, only exposing the event emitter.
-Now with added Q promise goodness!
+Now with added Q promise goodness! Now, now you can listen to wildcard event names!
 
 
 Why is this cool?
@@ -98,6 +98,27 @@ voter.on("vote", function(candidates) {
     setupForm(onSubmit, candidates);
     return deferred.promise;
 });
+```
+
+Wildcard and RegExp Events
+--------------------------
+
+There is a new method called `onMatch` that you can use to listen to multiple events.
+This is especially useful for setuping up a single logger.
+The pattern may be a string with a wildcard (i.e. "*") or a Regular Expression.
+See the [API reference][5] for further details.
+
+```javascript
+// Log every event.
+var unsubscribe = emitter.onMatch("ui.*", function (eventName) {
+  console.log("%s Event %s was published", new Date().toISOString(), eventName);
+})
+
+publish("ui.list.add"); // This will be logged above.
+publish("ui.session.signin"); // This will not.
+
+// And when you no longer want to listen, simply call the returned unsubscribe function.
+unsubscribe();
 ```
 
 More docs and examples
