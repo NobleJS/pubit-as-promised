@@ -20,7 +20,7 @@ xdescribe "Publisher options", ->
 
             process.nextTick ->
                 process.listeners("uncaughtException").push(originalOnUncaughtException)
-                onUncaughtException.should.have.been.calledWith(error)
+                onUncaughtException.should.have.been.calledWith(error, "eventName")
                 next()
 
         it "should deliver errors thrown by listeners to the supplied callback", ->

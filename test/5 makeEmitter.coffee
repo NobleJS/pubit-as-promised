@@ -2,7 +2,7 @@ pubit = require("..")
 
 describe "makeEmitter", ->
     target = null
-    
+
     beforeEach ->
         target = {}
 
@@ -53,5 +53,5 @@ describe "makeEmitter", ->
         listener.should.not.have.been.called
         process.nextTick ->
             listener.should.have.been.called
-            onListenerError.should.have.been.calledWith(error)
+            onListenerError.should.have.been.calledWith(error, "event")
             next()
